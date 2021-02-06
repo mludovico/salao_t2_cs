@@ -15,6 +15,8 @@ namespace SalaoT2
                 var meusClientes = IncluirMeusClientes();
                 var meusServicos = IncluirMeusServicos();
                 var meusFuncionarios = IncluirFuncionarios(meusServicos);
+                Decimal saldoInicial = 0;
+                var meuCaixa = InicializarCaixa(saldoInicial);
 
                 meusFuncionarios.ExcluirServicoDeUmFuncionario(10, 1);
 
@@ -38,6 +40,14 @@ namespace SalaoT2
                 agendamento.IncluirAgendamento(1, meusClientes.Clientes.First(), 
                     new ServicoSolicitado { Id = 1, Servico = meusServicos.Servicos.First() }, new DateTime(2021, 1, 29, 10, 0, 0), 
                     agenda);
+
+                foreach (var itemAgendado in agenda)
+                {
+                    meuCaixa.ReceberServico(itemAgendado.ServicoSolicitado.Servico);
+                }
+                Console.WriteLine($"Saldo atual: {meuCaixa.Saldo}");
+                Console.WriteLine($"Entradas: {meuCaixa.Entrada}");
+                Console.WriteLine($"Saídas: {meuCaixa.Saida}");
             }
             catch (IOException)
             {
@@ -133,6 +143,12 @@ namespace SalaoT2
             bf.IncluirServicoDeUmFuncionario(3, baseDeServico.Servicos.FirstOrDefault(x => x.Id == 4));
 
             return bf;
+        }
+
+        static Caixa InicializarCaixa(Decimal saldoInicial)
+        {
+            Caixa caixa = new Caixa(saldoInicial);
+            return caixa;
         }
 
         static void ChamarOExcluir()
