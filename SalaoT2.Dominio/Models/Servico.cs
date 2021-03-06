@@ -1,6 +1,8 @@
-﻿namespace SalaoT2.Dominio
+﻿using SalaoT2.Dominio.Models;
+
+namespace SalaoT2.Dominio
 {
-    public class Servico
+    public class Servico : IEntity
     {
         public int Id { get; set; }
         public string Nome { get; set; }

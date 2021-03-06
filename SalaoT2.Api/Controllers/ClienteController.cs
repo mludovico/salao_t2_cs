@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using SalaoT2.Data.Repositories;
 using SalaoT2.Dominio;
@@ -11,41 +8,41 @@ using SalaoT2.Dominio;
 namespace SalaoT2.Api.Controllers
 {
     [Route("api/[controller]")]
-    public class ServicoController : Controller
+    public class ClienteController : Controller
     {
-        private readonly ServicoRepository repo;
+        private readonly ClienteRepository repo;
 
-        public ServicoController()
+        public ClienteController()
         {
-            repo = new ServicoRepository();
+            repo = new ClienteRepository();
         }
         // GET: api/values
         [HttpGet]
-        public IEnumerable<Servico> Get()
+        public IEnumerable<Cliente> Get()
         {
             return repo.SelecionarTudo();
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public Servico Get(int id)
+        public Cliente Get(int id)
         {
             return repo.Selecionar(id);
         }
 
         // POST api/values
         [HttpPost]
-        public IEnumerable<Servico> Post([FromBody] Servico servico)
+        public IEnumerable<Cliente> Post([FromBody] Cliente cliente)
         {
-            repo.Incluir(servico);
+            repo.Incluir(cliente);
             return repo.SelecionarTudo();
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public IEnumerable<Servico> Put([FromBody] Servico servico)
+        public IEnumerable<Cliente> Put(int id, [FromBody] Cliente cliente)
         {
-            repo.Alterar(servico);
+            repo.Alterar(cliente);
             return repo.SelecionarTudo();
         }
 

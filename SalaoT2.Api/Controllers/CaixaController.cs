@@ -11,41 +11,41 @@ using SalaoT2.Dominio;
 namespace SalaoT2.Api.Controllers
 {
     [Route("api/[controller]")]
-    public class ServicoController : Controller
+    public class CaixaController : Controller
     {
-        private readonly ServicoRepository repo;
+        private readonly CaixaRepository repo;
 
-        public ServicoController()
+        public CaixaController()
         {
-            repo = new ServicoRepository();
+            repo = new CaixaRepository();
         }
         // GET: api/values
         [HttpGet]
-        public IEnumerable<Servico> Get()
+        public IEnumerable<Caixa> Get()
         {
             return repo.SelecionarTudo();
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public Servico Get(int id)
+        public Caixa Get(int id)
         {
             return repo.Selecionar(id);
         }
 
         // POST api/values
         [HttpPost]
-        public IEnumerable<Servico> Post([FromBody] Servico servico)
+        public IEnumerable<Caixa> Post([FromBody] Caixa caixa)
         {
-            repo.Incluir(servico);
+            repo.Incluir(caixa);
             return repo.SelecionarTudo();
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public IEnumerable<Servico> Put([FromBody] Servico servico)
+        public IEnumerable<Caixa> Put([FromBody] Caixa caixa)
         {
-            repo.Alterar(servico);
+            repo.Alterar(caixa);
             return repo.SelecionarTudo();
         }
 

@@ -11,41 +11,41 @@ using SalaoT2.Dominio;
 namespace SalaoT2.Api.Controllers
 {
     [Route("api/[controller]")]
-    public class ServicoController : Controller
+    public class ServicoSolicitadoController : Controller
     {
-        private readonly ServicoRepository repo;
+        private readonly ServicoSolicitadoRepository repo;
 
-        public ServicoController()
+        public ServicoSolicitadoController()
         {
-            repo = new ServicoRepository();
+            repo = new ServicoSolicitadoRepository();
         }
         // GET: api/values
         [HttpGet]
-        public IEnumerable<Servico> Get()
+        public IEnumerable<ServicoSolicitado> Get()
         {
             return repo.SelecionarTudo();
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public Servico Get(int id)
+        public ServicoSolicitado Get(int id)
         {
             return repo.Selecionar(id);
         }
 
         // POST api/values
         [HttpPost]
-        public IEnumerable<Servico> Post([FromBody] Servico servico)
+        public IEnumerable<ServicoSolicitado> Post([FromBody] ServicoSolicitado servicoSolicitado)
         {
-            repo.Incluir(servico);
+            repo.Incluir(servicoSolicitado);
             return repo.SelecionarTudo();
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public IEnumerable<Servico> Put([FromBody] Servico servico)
+        public IEnumerable<ServicoSolicitado> Put([FromBody] ServicoSolicitado servicoSolicitado)
         {
-            repo.Alterar(servico);
+            repo.Alterar(servicoSolicitado);
             return repo.SelecionarTudo();
         }
 

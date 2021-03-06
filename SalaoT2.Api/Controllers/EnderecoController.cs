@@ -11,41 +11,41 @@ using SalaoT2.Dominio;
 namespace SalaoT2.Api.Controllers
 {
     [Route("api/[controller]")]
-    public class ServicoController : Controller
+    public class EnderecoController : Controller
     {
-        private readonly ServicoRepository repo;
+        private readonly EnderecoRepository repo;
 
-        public ServicoController()
+        public EnderecoController()
         {
-            repo = new ServicoRepository();
+            repo = new EnderecoRepository();
         }
         // GET: api/values
         [HttpGet]
-        public IEnumerable<Servico> Get()
+        public IEnumerable<Endereco> Get()
         {
             return repo.SelecionarTudo();
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public Servico Get(int id)
+        public Endereco Get(int id)
         {
             return repo.Selecionar(id);
         }
 
         // POST api/values
         [HttpPost]
-        public IEnumerable<Servico> Post([FromBody] Servico servico)
+        public IEnumerable<Endereco> Post([FromBody] Endereco endereco)
         {
-            repo.Incluir(servico);
+            repo.Incluir(endereco);
             return repo.SelecionarTudo();
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public IEnumerable<Servico> Put([FromBody] Servico servico)
+        public IEnumerable<Endereco> Put(int id, [FromBody] Endereco endereco)
         {
-            repo.Alterar(servico);
+            repo.Alterar(endereco);
             return repo.SelecionarTudo();
         }
 

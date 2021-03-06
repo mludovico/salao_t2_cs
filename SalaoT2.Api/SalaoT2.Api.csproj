@@ -3,12 +3,8 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
-
-
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\SalaoT2.Data\SalaoT2.Data.csproj" />
     <ProjectReference Include="..\SalaoT2.Dominio\SalaoT2.Dominio.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>

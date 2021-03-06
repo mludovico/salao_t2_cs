@@ -1,6 +1,8 @@
-﻿namespace SalaoT2.Dominio
+﻿using SalaoT2.Dominio.Models;
+
+namespace SalaoT2.Dominio
 {
-    public class Endereco
+    public class Endereco : IEntity
     {
         public int Id { get; set; }
         public string Logradouro { get; set; }

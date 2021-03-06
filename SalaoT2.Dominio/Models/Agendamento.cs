@@ -1,22 +1,12 @@
-﻿using System;
+﻿using SalaoT2.Dominio.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace SalaoT2.Dominio
 {
-    public class Agendamento
+    public class Agendamento : IEntity
     {
-
-        /*
-         Thamirys
-            Progressiva / Maria - 14:00 - 4hs
-            Manicure / Joana - 18:00 - 1h
-            Corte Cabelo / Maria - 19:00 - 30           
-         29/01/2021 as 14 hs
-         A Realizar
-         */
-
-
         public int Id { get; set; }
         public Cliente Cliente { get; set; }
         //public List<ServicoSolicitado> ServicosSolicitados { get; set; }

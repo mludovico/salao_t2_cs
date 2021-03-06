@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SalaoT2.Dominio.Models;
+using System;
 
 namespace SalaoT2.Dominio
 {
